@@ -1,0 +1,30 @@
+<div class="sidebar d-flex">
+  <div class="service-flex">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" routerLink="/dashboard" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+        <img src="/assets/computer.png" alt="">
+        Dashboard
+      </li>
+      <li class="nav-item" routerLink="/dashboard/employee-management" routerLinkActive="active">
+        <img src="/assets/group.png" alt="">
+        Employee management
+      </li>
+      <li class="nav-item" routerLink="/dashboard/washing-bay" routerLinkActive="active">
+        <img src="/assets/document.png" alt="">
+        Washing bay
+      </li>
+      <li class="nav-item" routerLink="/dashboard/user-list" routerLinkActive="active">
+        <img src="/assets/user-list.png" alt="">
+        User list
+      </li>
+      <li class="nav-item" routerLink="/dashboard/service" routerLinkActive="active">
+        <img src="/assets/support.png" alt="">
+        Service
+      </li>
+    </ul>
+  </div>
+  <div class="flex-grow-1">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.wash-navbar {
+  display: flex;
+  padding: 0 100px;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background: rgb(0, 66, 197);
+
+  .wash-name {
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 100px;
+    padding: 0 10px;
+
+    select {
+      border: none;
+      border-radius: 100px;
+
+      height: 40px;
+      padding: 0 60px;
+      background: rgb(0, 66, 197);
+      color: rgb(232, 232, 232);
+    }
+  }
+
+  .wahs-menu {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .wash-el {
+      color: white;
+      margin-right: 20px;
+
+      img {
+        height: 22px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

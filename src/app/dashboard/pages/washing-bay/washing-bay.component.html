@@ -1,0 +1,25 @@
+<div class="washing-bay">
+  <div class="head">Washing bay listing</div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Spot Name</th>
+      <th>Spot Number</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let el of spotList">
+      <td>{{el.spotName}}</td>
+      <td>{{el.spotNumber}}</td>
+
+      <td class="function">
+        <img src="/assets/edit.png" alt="">
+        <img src="/assets/rubbish-bin.png" alt="">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="employee">
+  <div class="head">Employee list and details</div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Member</th>
+      <th>Work day</th>
+      <th>Working hours</th>
+      <th>Status</th>
+      <th>Employee id</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let el of emplList">
+      <td><img [src]="el.member.img" alt="">{{el.member.fullname}}</td>
+      <td>{{el.workDateTime | date: 'dd MMMM yyyy'}}</td>
+      <td>{{el.workDateTime | date: 'HH:mm'}}</td>
+      <td>
+        <div class="circle circle-{{el.status}}"></div>
+      </td>
+      <td>{{el.member.emplId}}</td>
+      <td class="function">
+        <img src="/assets/edit.png" alt="">
+        <img src="/assets/rubbish-bin.png" alt="">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="circles">
+    <div class="el">
+      <div class="circle circle-1"></div>
+      Works
+    </div>
+    <div class="el">
+      <div class="circle circle-2"></div>
+      <div>Temporarily
+        not working
+      </div>
+
+    </div>
+    <div class="el">
+      <div class="circle circle-0"></div>
+      Does not work
+    </div>
+  </div>
+
+</div>

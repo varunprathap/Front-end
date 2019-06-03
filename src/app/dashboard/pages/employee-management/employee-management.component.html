@@ -13,15 +13,15 @@
     </thead>
     <tbody>
     <tr *ngFor="let el of emplList">
-      <td><img [src]="el.member.img" alt="">{{el.member.fullname}}</td>
-      <td>{{el.workDateTime | date: 'dd MMMM yyyy'}}</td>
-      <td>{{el.workDateTime | date: 'HH:mm'}}</td>
+      <td><img src="/assets/035-user.png" alt="">{{el.firstName + ' ' + el.lastName}}</td>
+      <td>{{el.workDay}}</td>
+      <td>{{el.workingHours}}</td>
       <td>
         <div class="circle circle-{{el.status}}"></div>
       </td>
-      <td>{{el.member.emplId}}</td>
+      <td>{{el.employee_id}}</td>
       <td class="function">
-        <img src="/assets/edit.png" alt="">
+        <img src="/assets/edit.png" alt="" (click)="openEditDialog(el.id)">
         <img src="/assets/rubbish-bin.png" alt="">
       </td>
     </tr>
@@ -29,20 +29,63 @@
   </table>
   <div class="circles">
     <div class="el">
-      <div class="circle circle-1"></div>
+      <div class="circle circle-green"></div>
       Works
     </div>
     <div class="el">
-      <div class="circle circle-2"></div>
+      <div class="circle circle-yellow"></div>
       <div>Temporarily
         not working
       </div>
 
     </div>
     <div class="el">
-      <div class="circle circle-0"></div>
+      <div class="circle circle-red"></div>
       Does not work
     </div>
   </div>
 
 </div>
+
+
+<p-dialog [(visible)]="displayEditDialog">
+  <p-header>
+    Edit
+  </p-header>
+  <ng-container *ngIf="editData">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" class="form-control" placeholder="First Name" [(ngModel)]="editData.firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="editData.lastName">
+    </div>
+    <div class="form-group">
+      <label for="workDay">Work day</label>
+      <input type="text" id="workDay" class="form-control" placeholder="Work day" [(ngModel)]="editData.workDay">
+    </div>
+    <div class="form-group">
+      <label for="workingHours">Working hours</label>
+      <input type="text" id="workingHours" class="form-control" placeholder="Working hours"
+             [(ngModel)]="editData.workingHours">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select name="type" id="status" class="form-control" [(ngModel)]="editData.status">
+        <option value="green">Works</option>
+        <option value="yellow">Temporarily not working</option>
+        <option value="red">Does not work</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="employee_id">Employee id</label>
+      <input type="text" id="employee_id" class="form-control" placeholder="Employee id"
+             [(ngModel)]="editData.employee_id">
+    </div>
+  </ng-container>
+  <p-footer>
+    <button class="btn btn-danger" (click)="displayEditDialog = false">Cancel</button>
+    <button class="btn btn-success" (click)="saveEl(editData.id)">Save</button>
+  </p-footer>
+</p-dialog>

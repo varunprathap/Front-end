@@ -1,6 +1,4 @@
 .dashboard {
-  padding: 60px 100px;
-
   .head {
     font-size: 30px;
     font-family: Comfortaa, serif;
@@ -10,10 +8,81 @@
   }
 
   .options {
+    border-top: 1px solid rgb(136, 136, 136);
+    border-bottom: 1px solid rgb(136, 136, 136);
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: Comfortaa, serif;
+    font-weight: bold;
+
     .calendar {
+      cursor: pointer;
+
       img {
         height: 30px;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.10);
+        }
+      }
+    }
+
+    .option-btn {
+      margin-left: 50px;
+      height: 30px;
+      width: 128px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &.active {
+        background: #b7eaff;
+      }
+    }
+
+    .left {
+      display: flex;
+    }
+
+    .selected-day {
+      margin-right: 90px;
+    }
+  }
+
+  .types-cars {
+    margin-top: 40px;
+    display: flex;
+    font-family: Comfortaa, serif;
+    font-weight: 600;
+    color: #7e7e7e;
+    .type-car {
+      width: 200px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      .indicator {
+        margin-right: 6px;
+      }
+    }
+
+    .indicator {
+      height: 40px;
+      width: 40px;
+      border-radius: 6px;
+      border: 1px solid #acacac;
+    }
+
+    .active {
+      .indicator {
+        border-color: #b7eaff;
+        background: #b7eaff;
       }
     }
   }
+
 }

@@ -9,11 +9,10 @@ export class DashboardContentComponent implements OnInit {
 
   data: any;
   options: any;
+  date: Date;
 
   constructor() {
-  }
-
-  ngOnInit() {
+    this.date = new Date();
     this.data = {
       labels: Array(24).fill('').map((value, index) => {
         return `${index}:00`;
@@ -24,7 +23,36 @@ export class DashboardContentComponent implements OnInit {
         }), label: 'Cars', backgroundColor: 'rgb(183, 234, 255)'
       }]
     };
+    this.options = {
+      legend: {
+        labels: {
+          fontColor: '#0042c5',
+          fontSize: 14,
+          fontFamily: 'Comfortaa, serif'
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: '#0042c5',
+            fontSize: 14,
+            fontFamily: 'Comfortaa, serif'
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            fontColor: '#0042c5',
+            fontSize: 14,
+            fontFamily: 'Comfortaa, serif'
+          }
+        }]
+      }
+    };
     console.log(this.data);
+  }
+
+  ngOnInit() {
+
   }
 
 }

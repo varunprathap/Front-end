@@ -10,6 +10,11 @@ import {DashboardComponent} from './dashboard.component';
 import { EmployeeManagementComponent } from './pages/employee-management/employee-management.component';
 import { DashboardContentComponent } from './pages/dashboard-content/dashboard-content.component';
 import { WashingBayComponent } from './pages/washing-bay/washing-bay.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { ServiceComponent } from './pages/service/service.component';
+import {DialogModule} from 'primeng/dialog';
+import {FormsModule} from '@angular/forms';
+import {MultiSelectModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -19,13 +24,17 @@ import { WashingBayComponent } from './pages/washing-bay/washing-bay.component';
     DashboardComponent,
     EmployeeManagementComponent,
     DashboardContentComponent,
-    WashingBayComponent
+    WashingBayComponent,
+    UserListComponent,
+    ServiceComponent
   ],
 
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ChartModule
+    DialogModule,
+    ChartModule,
+    FormsModule,
   ]
 })
 export class DashboardModule {

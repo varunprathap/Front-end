@@ -15,7 +15,7 @@
       <td>{{el.spotNumber}}</td>
 
       <td class="function">
-        <img src="/assets/edit.png" alt="">
+        <img src="/assets/edit.png" alt="" (click)="openEditDialog(el.id)">
         <img src="/assets/rubbish-bin.png" alt="">
       </td>
     </tr>
@@ -23,3 +23,22 @@
   </table>
 
 </div>
+<p-dialog [(visible)]="displayEditDialog">
+  <p-header>
+    Edit
+  </p-header>
+  <ng-container *ngIf="editData">
+    <div class="form-group">
+      <label for="spotName">Spot Name</label>
+      <input type="text" id="spotName" class="form-control" placeholder="Spot Name" [(ngModel)]="editData.spotName">
+    </div>
+    <div class="form-group">
+      <label for="spotNumber">Spot Number</label>
+      <input type="number" id="spotNumber" class="form-control" placeholder="Spot Number" [(ngModel)]="editData.spotNumber">
+    </div>
+  </ng-container>
+  <p-footer>
+    <button class="btn btn-danger" (click)="displayEditDialog = false">Cancel</button>
+    <button class="btn btn-success" (click)="saveEl(editData.id)">Save</button>
+  </p-footer>
+</p-dialog>

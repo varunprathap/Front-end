@@ -93,3 +93,10 @@ ul {
     }
   }
 }
+.content {
+  max-width: calc(100vw - 220px);
+  width: calc(100vw - 220px);
+  position: relative;
+  padding: 60px 100px;
+
+}

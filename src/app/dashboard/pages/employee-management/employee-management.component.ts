@@ -9,27 +9,40 @@ export class EmployeeManagementComponent implements OnInit {
 
   emplList: any[];
 
+  displayEditDialog: boolean;
+  editData: any;
+
   constructor() {
     this.emplList = [
       {
-        member: {
-          img: '/assets/035-user.png',
-          fullname: 'Name and Surname',
-          emplId: 'Account Manager'
-        },
-        workDateTime: new Date(),
-        status: 0,
+        id: 'some id',
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        workDay: '03 June 2019',
+        workingHours: '12:06',
+        status: 'red',
+        employee_id: 'Account Manager'
       },
       {
-        member: {
-          img: '/assets/035-user.png',
-          fullname: 'Name and Surname',
-          emplId: 'Account Manager'
-        },
-        workDateTime: new Date(),
-        status: 0,
+        id: 'some id 2',
+        firstName: 'First Name 2',
+        lastName: 'Last Name 2',
+        workDay: '04 June 2019',
+        workingHours: '15:06',
+        status: 'green',
+        employee_id: 'Account Manager'
       }
     ];
+  }
+
+  openEditDialog(id: any) {
+    this.editData = {...this.emplList.find(value => value.id === id)};
+    this.displayEditDialog = true;
+  }
+
+  saveEl(id: any) {
+    this.emplList[this.emplList.findIndex(v => v.id === id)] = this.editData;
+    this.displayEditDialog = false;
   }
 
   ngOnInit() {

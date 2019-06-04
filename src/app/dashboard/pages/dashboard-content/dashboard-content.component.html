@@ -1,13 +1,35 @@
 <div class="dashboard">
-  <div class="head">Employee list and details</div>
+  <div class="head">Statistics of cars</div>
   <div class="options">
-    <div class="calendar">
-      <img src="/assets/calendar 2.png" alt="">
+    <div class="left">
+      <div class="calendar">
+        <img src="/assets/calendar 2.png" alt="">
+      </div>
+      <div class="day option-btn active">Day</div>
+      <div class="week option-btn">Week</div>
+      <div class="month option-btn">Month</div>
     </div>
-    <div class="day"></div>
-    <div class="week"></div>
-    <div class="month"></div>
-    <div class="selected-day"></div>
+    <div class="right">
+      <div class="selected-day">{{date | date: 'dd MMMM yyyy'}}</div>
+    </div>
   </div>
   <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+  <div class="types-cars">
+    <div class="all active type-car" >
+      <div class="indicator"></div>
+      All cars
+    </div>
+    <div class="SUV type-car">
+      <div class="indicator"></div>
+      SUV
+    </div>
+    <div class="sedan type-car">
+      <div class="indicator"></div>
+      Sedan
+    </div>
+    <div class="truck type-car">
+      <div class="indicator"></div>
+      Truck
+    </div>
+  </div>
 </div>

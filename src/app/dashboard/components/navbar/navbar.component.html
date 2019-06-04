@@ -1,14 +1,12 @@
 <div class="wash-navbar">
 
-  <div class="wahs-menu">
-    <!--<div class="wash-el">
-      <img src="/assets/automatic-wash-car.png" alt="">
-      Washing bay listing
+  <div class="wahs-menu" >
+    <ng-container *ngIf="service.navElements">
+    <div class="wash-el" *ngFor="let el of service.navElements">
+      <img [src]="el.img" alt="">
+      {{el.name}}
     </div>
-    <div class="wash-el">
-      <img src="/assets/add-circular-outlined-button.png" alt="">
-      New bay enrollment
-    </div>-->
+    </ng-container>
   </div>
 
   <div class="wash-name">

@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {WashingService} from './washing.service';
 
 @Component({
   selector: 'app-washing-bay',
   templateUrl: './washing-bay.component.html',
-  styleUrls: ['./washing-bay.component.scss']
+  styleUrls: ['./washing-bay.component.scss'],
+  providers: [WashingService]
 })
 export class WashingBayComponent implements OnInit {
 
@@ -12,10 +14,11 @@ export class WashingBayComponent implements OnInit {
   displayEditDialog: boolean;
   editData: any;
 
-  constructor() {
+  constructor(private service: WashingService) {
   }
 
   ngOnInit() {
+    this.service.setMenu();
     this.spotList = [
       {
         id: 'some id',

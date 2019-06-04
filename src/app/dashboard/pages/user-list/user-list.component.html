@@ -1,0 +1,59 @@
+<div class="user-list">
+  <div class="head">User listing</div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone number</th>
+      <th>Car license plate</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let el of users">
+      <td>{{el.firstName}}</td>
+      <td>{{el.lastName}}</td>
+      <td>{{el.phone}}</td>
+      <td>{{el.carLicense}}</td>
+
+      <td class="function">
+        <img src="/assets/edit.png" alt="" (click)="openEditDialog(el.id)">
+        <img src="/assets/rubbish-bin.png" alt="">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<p-dialog [(visible)]="displayEditDialog">
+  <p-header>
+    Edit
+  </p-header>
+  <ng-container *ngIf="editData">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" class="form-control" placeholder="First Name" [(ngModel)]="editData.firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="editData.lastName">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone number	</label>
+      <input type="text" id="phone" class="form-control" placeholder="Phone number	" [(ngModel)]="editData.phone">
+    </div>
+    <div class="form-group">
+      <label for="carLicense">Car license plate</label>
+      <input type="text" id="carLicense" class="form-control" placeholder="Car license plate"
+             [(ngModel)]="editData.carLicense">
+    </div>
+  </ng-container>
+  <p-footer>
+    <button class="btn btn-danger" (click)="displayEditDialog = false">Cancel</button>
+    <button class="btn btn-success" (click)="saveEl(editData.id)">Save</button>
+  </p-footer>
+</p-dialog>

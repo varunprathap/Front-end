@@ -14,7 +14,6 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { ServiceComponent } from './pages/service/service.component';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {MultiSelectModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [

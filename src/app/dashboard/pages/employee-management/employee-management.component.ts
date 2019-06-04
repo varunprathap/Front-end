@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {EmployeeService} from './employee.service';
 
 @Component({
   selector: 'app-employee-management',
   templateUrl: './employee-management.component.html',
-  styleUrls: ['./employee-management.component.scss']
+  styleUrls: ['./employee-management.component.scss'],
+  providers: [EmployeeService]
 })
 export class EmployeeManagementComponent implements OnInit {
 
@@ -12,7 +14,7 @@ export class EmployeeManagementComponent implements OnInit {
   displayEditDialog: boolean;
   editData: any;
 
-  constructor() {
+  constructor(private service: EmployeeService) {
     this.emplList = [
       {
         id: 'some id',
@@ -46,6 +48,7 @@ export class EmployeeManagementComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.setMenu();
   }
 
 }

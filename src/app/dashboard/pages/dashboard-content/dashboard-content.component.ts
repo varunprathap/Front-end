@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {DashboardService} from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard-content',
   templateUrl: './dashboard-content.component.html',
-  styleUrls: ['./dashboard-content.component.scss']
+  styleUrls: ['./dashboard-content.component.scss'],
+  providers: [DashboardService]
 })
 export class DashboardContentComponent implements OnInit {
 
@@ -11,7 +13,7 @@ export class DashboardContentComponent implements OnInit {
   options: any;
   date: Date;
 
-  constructor() {
+  constructor(private service: DashboardService) {
     this.date = new Date();
     this.data = {
       labels: Array(24).fill('').map((value, index) => {
@@ -52,7 +54,7 @@ export class DashboardContentComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.service.setMenu();
   }
 
 }

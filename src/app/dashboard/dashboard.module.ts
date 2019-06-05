@@ -14,6 +14,9 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { ServiceComponent } from './pages/service/service.component';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
+import {MomentModule} from 'ngx-moment';
+import {CalendarModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import {FormsModule} from '@angular/forms';
     DialogModule,
     ChartModule,
     FormsModule,
+    SharedModule,
+    MomentModule,
+    CalendarModule
   ]
 })
 export class DashboardModule {

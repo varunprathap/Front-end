@@ -12,15 +12,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let el of users">
+    <tr *ngFor="let el of service.data$ | async">
       <td>{{el.firstName}}</td>
       <td>{{el.lastName}}</td>
       <td>{{el.phone}}</td>
       <td>{{el.carLicense}}</td>
 
       <td class="function">
-        <img src="/assets/edit.png" alt="" (click)="openEditDialog(el.id)">
-        <img src="/assets/rubbish-bin.png" alt="">
+        <img src="/assets/edit.png" alt="" (click)="openEditDialog(el)">
+        <img src="/assets/rubbish-bin.png" alt="" (click)="service.delete(el)">
       </td>
     </tr>
     </tbody>
@@ -31,7 +31,7 @@
 
 <p-dialog [(visible)]="displayEditDialog">
   <p-header>
-    Edit
+    {{new ? 'New' : 'Edit'}}
   </p-header>
   <ng-container *ngIf="editData">
     <div class="form-group">
@@ -54,6 +54,6 @@
   </ng-container>
   <p-footer>
     <button class="btn btn-danger" (click)="displayEditDialog = false">Cancel</button>
-    <button class="btn btn-success" (click)="saveEl(editData.id)">Save</button>
+    <button class="btn btn-success" (click)="saveEl()">{{new ? 'Add' : 'Save'}}</button>
   </p-footer>
 </p-dialog>

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceService} from './service.service';
+import {NavbarService} from '../../../shared/services/navbar.service';
+import {DashwashList} from '../../../shared/classes/abstract/dashwash-list';
 
 @Component({
   selector: 'app-service',
@@ -7,47 +9,16 @@ import {ServiceService} from './service.service';
   styleUrls: ['./service.component.scss'],
   providers: [ServiceService]
 })
-export class ServiceComponent implements OnInit {
+export class ServiceComponent extends DashwashList {
 
-  options: any[];
-  services: any[];
+  options: string[];
 
-  displayEditDialog: boolean;
-  editData: any;
-
-  constructor(private service: ServiceService) {
+  constructor(service: ServiceService, navbarService: NavbarService) {
+    super(service, navbarService);
     this.options = [
       'SUV',
       'Sedan',
       'Truck'
     ];
-
-    this.services = [
-      {
-        id: 'some id',
-        serviceName: 'lorem',
-        serviceType: 'Sedan'
-      },
-      {
-        id: 'some id 2',
-        serviceName: 'lorem 2',
-        serviceType: 'Truck'
-      }
-    ];
   }
-
-  ngOnInit() {
-    this.service.setMenu();
-  }
-
-  openEditDialog(id: any) {
-    this.editData = {...this.services.find(value => value.id === id)};
-    this.displayEditDialog = true;
-  }
-
-  saveEl(id: any) {
-    this.services[this.services.findIndex(v => v.id === id)] = this.editData;
-    this.displayEditDialog = false;
-  }
-
 }

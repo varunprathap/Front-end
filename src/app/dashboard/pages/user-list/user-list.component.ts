@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserListService} from './user-list.service';
+import {DashwashList} from '../../../shared/classes/abstract/dashwash-list';
+import {NavbarService} from '../../../shared/services/navbar.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,38 +9,11 @@ import {UserListService} from './user-list.service';
   styleUrls: ['./user-list.component.scss'],
   providers: [UserListService]
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent extends DashwashList {
 
-  users: any[];
-
-
-  displayEditDialog: boolean;
-  editData: any;
-
-  constructor(private service: UserListService) {
-    this.users = Array(10).fill({}).map((value, index) => {
-      return {
-        id: index,
-        firstName: `First Name ${index}`,
-        lastName: `Last Name ${index}`,
-        phone: `+7-10-1-212-123 45 6${index}`,
-        carLicense: ' AAA-10-00'
-      };
-    });
+  constructor(service: UserListService, navbarService: NavbarService) {
+    super(service, navbarService);
   }
 
-  ngOnInit() {
-    this.service.setMenu();
-  }
-
-  openEditDialog(id: any) {
-    this.editData = {...this.users.find(value => value.id === id)};
-    this.displayEditDialog = true;
-  }
-
-  saveEl(id: any) {
-    this.users[this.users.findIndex(v => v.id === id)] = this.editData;
-    this.displayEditDialog = false;
-  }
 
 }

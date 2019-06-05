@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {NavElement} from '../interfaces/nav-element';
 import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NavbarService {
+export class NavbarService implements OnDestroy {
 
   navElements: NavElement[];
 
@@ -17,5 +17,9 @@ export class NavbarService {
 
   setNavMenu(elements: NavElement[]) {
     this.navElements = elements;
+  }
+
+  ngOnDestroy(): void {
+      this.navClick.complete();
   }
 }

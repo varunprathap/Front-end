@@ -1,5 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WashingService} from './washing.service';
+import {Subscription} from 'rxjs';
+import {EmployeeService} from '../employee-management/employee.service';
+import {NavbarService} from '../../../shared/services/navbar.service';
+import {NavElement} from '../../../shared/interfaces/nav-element';
+import {DashwashList} from '../../../shared/classes/abstract/dashwash-list';
 
 @Component({
   selector: 'app-washing-bay',
@@ -7,50 +12,10 @@ import {WashingService} from './washing.service';
   styleUrls: ['./washing-bay.component.scss'],
   providers: [WashingService]
 })
-export class WashingBayComponent implements OnInit {
+export class WashingBayComponent extends DashwashList {
 
-  spotList: any[];
-
-  displayEditDialog: boolean;
-  editData: any;
-
-  constructor(private service: WashingService) {
+  constructor(service: WashingService, navbarService: NavbarService) {
+    super(service, navbarService);
   }
 
-  ngOnInit() {
-    this.service.setMenu();
-    this.spotList = [
-      {
-        id: 'some id',
-        spotName: 'SpotName1',
-        spotNumber: 1
-      },
-      {
-        id: 'some id 2',
-        spotName: 'SpotName2',
-        spotNumber: 2
-      },
-      {
-        id: 'some id 3',
-        spotName: 'SpotName3',
-        spotNumber: 3
-      },
-      {
-        id: 'some id 4',
-        spotName: 'SpotName4',
-        spotNumber: 4
-      },
-    ];
-  }
-
-
-  openEditDialog(id: any) {
-    this.editData = {...this.spotList.find(value => value.id === id)};
-    this.displayEditDialog = true;
-  }
-
-  saveEl(id: any) {
-    this.spotList[this.spotList.findIndex(v => v.id === id)] = this.editData;
-    this.displayEditDialog = false;
-  }
 }

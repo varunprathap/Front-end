@@ -2,33 +2,44 @@
 
   <div class="sign_up">
 
-<div class="logo">
-  <img src="/assets/logo.png">
-</div>
-      <!--<div class="login_register row">
-         <button type="button" id="login" class="btn btn-link active">Sign Up  /</button>
-          <button type="button" id="register" class="btn btn-link">Login</button>
-      </div>-->
+    <div class="logo">
+      <img src="/assets/logo.png">
+    </div>
+    <!--<div class="login_register row">
+       <button type="button" id="login" class="btn btn-link active">Sign Up  /</button>
+        <button type="button" id="register" class="btn btn-link">Login</button>
+    </div>-->
 
-        <!--  <form id="inputs">
-             <input type="text" placeholder="User name">
-              <input type="email" placeholder="Email ">
-              <input type="password" placeholder="Password">
-              <input type="text" placeholder="Phone number *">
-              <input type="text" placeholder="Company name *">
-              <input type="text" placeholder="Address">
-          </form>-->
-      <form id="input_login" [formGroup]="loginForm">
-          <input type="text" placeholder="Email" formControlName="email">
-          <input type="password" placeholder="Password" formControlName="password">
-
-      </form>
-      <button class="login_buttton" (click)="onClick()">Login</button>
-
+    <!--  <form id="inputs">
+         <input type="text" placeholder="User name">
+          <input type="email" placeholder="Email ">
+          <input type="password" placeholder="Password">
+          <input type="text" placeholder="Phone number *">
+          <input type="text" placeholder="Company name *">
+          <input type="text" placeholder="Address">
+      </form>-->
+    <form id="input_login" [formGroup]="loginForm">
+      <input type="text" placeholder="Email" formControlName="email">
+      <div class="validation" *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty">
+        <ng-container *ngIf="loginForm.get('email').errors['required']">This field is required</ng-container>
+        <ng-container *ngIf="loginForm.get('email').errors['email']">Need to enter email</ng-container>
+      </div>
+      <input type="password" placeholder="Password" formControlName="password">
+      <div class="validation" *ngIf="loginForm.get('password').invalid && loginForm.get('password').dirty">
+        <ng-container *ngIf="loginForm.get('password').errors['required']">This field is required</ng-container>
+        <ng-container *ngIf="loginForm.get('password').errors['minlength']">
+          Minimum number of characters {{loginForm.get('password').errors['minlength'].requiredLength}}
+        </ng-container>
+      </div>
+    </form>
+    <button class="login_buttton" (click)="onClick()" [disabled]="loginForm.invalid">Login</button>
+    <div class="validation">
+      {{error}}
+    </div>
   </div>
   <div class="image_auto">
-<div class="image">
-  <img src="/assets/imj.png">
-</div>
+    <div class="image">
+      <img src="/assets/imj.png">
+    </div>
   </div>
 </section>

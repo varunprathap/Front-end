@@ -19,4 +19,27 @@
       <option value="">lorem</option>
     </select>
   </div>
+  <div class="wash-add" (click)="display = true">    
+    <img src="assets/add-circular-outlined-button.png" alt="">  
+  </div>
+  <p-dialog [(visible)]="display">
+      <p-header>
+          Add a new car washing station
+      </p-header>
+      <ng-container >
+          <div class="form-group">
+            <label for="stationName">Station Name</label>
+            <input type="text" id="stationName" class="form-control" placeholder="Station Name" >
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" class="form-control" placeholder="Address" >
+          </div>
+      </ng-container>
+      <p-footer>
+          <button class="btn btn-danger" (click)="display = false">Cancel</button>
+          <button class="btn btn-success" >Add</button>
+        </p-footer>
+      
+    </p-dialog>
 </div>

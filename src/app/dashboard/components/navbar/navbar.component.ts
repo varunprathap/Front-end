@@ -8,13 +8,16 @@ import {NavbarService} from '../../../shared/services/navbar.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  display:boolean=false
   constructor(
     public router: Router,
     public service: NavbarService
   ) { }
 
   ngOnInit() {
+  }
+  displayWashMenu(){
+    this.display=true
   }
 
 }

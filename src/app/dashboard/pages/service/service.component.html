@@ -13,9 +13,7 @@
     <tr *ngFor="let el of service.data$ | async">
       <td>{{el.serviceName}}</td>
       <td class="service-type">
-        <select name="type" [value]="el.serviceType">
-          <option *ngFor="let option of options" [value]="option">{{option}}</option>
-        </select>
+        {{el.serviceType}}        
       </td>
       <td class="function">
         <img src="/assets/edit.png" alt="" (click)="openEditDialog(el)">

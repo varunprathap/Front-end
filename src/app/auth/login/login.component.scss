@@ -7,11 +7,19 @@
   margin-bottom: 64px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #FCFEFF;
+  border-radius: 1px;
+}
+
 .logo {
-  width: 21%;
-  height: 8%;
-  margin-top: 200px;
-  margin-bottom: 30px;
+  height: 40px;
+  width: 110px;
+  margin-bottom: 10px;
 }
 
 .logo img {
@@ -22,11 +30,13 @@
 
 .sign_up_page {
   display: flex;
-  align-items: start;
+  align-items: center;
+  background: #ffffff;
+
 }
 
 .sign_up {
-  width: 50%;
+  width: 65%;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -45,13 +55,13 @@
 #input_login {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
 }
 
 #login {
   text-decoration: none;
   font-family: Impact;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -64,13 +74,12 @@
 .login_buttton {
   border: none;
   cursor: pointer;
-  width: 256px;
-  height: 77px;
-  border-radius: 45.5px;
+  width: 100%;
+  height: 50px;
   box-shadow: 0px 7px 24px 0 rgba(0, 51, 136, 0.26);
-  background-color: #0042c5;
+  background-color: #48ACE9;
   font-family: Comfortaa-Regular;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -78,9 +87,10 @@
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
-  margin-top: 30px;
+  border-radius: 1px;
+  margin-top: 10px;
   &:disabled {
-    background-color: rgba(0, 66, 197, 0.6);
+    background-color: rgba(72, 172, 233, 0.8);
   }
 }
 
@@ -102,7 +112,9 @@
 }
 
 input {
+  background: #D7D8D8;
   outline: none;
+  border-radius: 2px;
   font-family: Comfortaa-Regular;
   font-size: 18px;
   font-weight: normal;
@@ -112,11 +124,10 @@ input {
   letter-spacing: normal;
   color: #6c6c6c;
   width: 100%;
-  height: 60px;
-  border-radius: 30px;
-  border: solid 1px #595959;
+  height: 50px;
+  border: none;
   padding-left: 45px;
-  margin-top: 10px;
+  margin-top: 2px;
   &:disabled {
 
   }
@@ -124,18 +135,20 @@ input {
 
 .image {
   width: 100%;
-  height: 1080px;
+  height: 100vh;
 }
 
 .image img {
   width: 100%;
   height: 100%;
-  object-fit: unset;
+  object-fit: cover;
 }
 
 .validation {
+  height: 20px;
   font-size: 80%;
   color: #dc3545;
+  text-align: center;
 }
 
 

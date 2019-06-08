@@ -41,4 +41,8 @@ export abstract class DashwashService {
         this.refresh();
       });
   }
+  addStation(){
+  
+  }
 }
+

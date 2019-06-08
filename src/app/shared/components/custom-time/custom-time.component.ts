@@ -18,11 +18,11 @@ export class CustomTimeComponent implements OnInit, AfterViewInit {
   }
 
 
-  private get ownValue(): Date {
+  get ownValue(): Date {
     return this.val;
   }
 
-  private set ownValue(value: Date) {
+  set ownValue(value: Date) {
     this.valueChange.emit(value);
     this.val = value;
   }

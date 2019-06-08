@@ -15,6 +15,7 @@ export class UserListService extends  DashwashService {
   setMenu() {
     this.navbarService.setNavMenu([
       {name: 'User listing', img: '/assets/analytics.png', actionId: 'listing', underline: true},
+      {name: 'New user',  img: '/assets/add-circular-outlined-button.png', actionId: 'new', pointer: true},
       {name: 'Statistics', img: '/assets/calendar (2).png', actionId: 'statistics'},
     ]);
   }
